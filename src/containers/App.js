@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
-//import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
   state={
@@ -33,30 +33,22 @@ class App extends Component {
   }
 
   render() {   
+    
     let persons=null;
-    let styleBtnClass='';
-    const classesName=[];
-
     if(this.state.showPersons){
       persons= <Persons persons={this.state.persons}
       deleteClickHandler={this.deletePersonHandler}
       changeNameHandler={this.changeNameHandler} />;
         
-      styleBtnClass=classes.Red;
-    }
-
-    if(this.state.persons.length<3){
-      classesName.push(classes.red);
-    }
-    if(this.state.persons.length<2){
-      classesName.push(classes.bold);
+      
     }
 
     return (
       <div className={classes.App}>
-        <h1>Hi, I'm a React App </h1>
-        <p className={classesName.join(' ')} >This is really working!</p>
-        <button className={styleBtnClass} onClick={this.toggleHandler}>Toggle </button> 
+        <Cockpit persons={this.state.persons} 
+        showPersons={this.state.showPersons} 
+        toggleHandler={this.toggleHandler} />
+
         {persons}
       </div>
       
