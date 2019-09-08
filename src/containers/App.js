@@ -14,17 +14,7 @@ class App extends Component {
     showPersons:false 
   }
 
-  
-  // swichNameHandler=(newName)=>{
-  //   //this.state.persons[0].name='William';
-  //   this.setState({
-  //     persons:[
-  //       {name:newName,age:28},
-  //       {name:'John',age:25},
-  //       {name:'Emily',age:21}
-  //     ]
-  //   })
-  // }
+
 
   deletePersonHandler=(personIndex)=>{
     //const persons=this.state.persons.slice();
@@ -42,38 +32,13 @@ class App extends Component {
 
   }
 
-  // // event is the parameter of the wrapper function around eventHandler. event parameter is set to apple this the following code
-  // changeNameHandler= apple=>{
-  //     const newState=this.state;//not recommended to mutate the original state data directly
-  //     newState.persons[1]['name']=apple.target.value;
-  //     //this.state.persons[0].name='William';
-  //     this.setState(newState)
-    //this.setState(
-      // {
-      //   persons:[
-      //     {name:'Max',age:28},
-      //     {name:event.target.value,age:25},
-      //     {name:'Emily',age:21}
-      //   ]
-        
-      // }
-    //)
-  //}
-
   toggleHandler=()=>{
     this.setState({showPersons:!this.state.showPersons});
 
   }
 
   render() {
-    // let style={
-    // backgroundColor:'green',
-    // color:'white',
-    // font:'inherit',
-    // border:'1px solid blue',
-    // padding:'8px',
-    // cursor:'pointer'
-    // }
+    
 
     let persons=null;
     let styleBtnClass='';
@@ -95,11 +60,7 @@ class App extends Component {
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}> My Hobbies: Racing </Person> */}
       </div> );
       styleBtnClass=classes.Red
-      // style.backgroundColor='red';
-      // style[':hover']={
-      //   backgroundColor:'pink',
-      //   color: 'black'
-      // }
+      
     }
 
     const classesName=[];
@@ -115,7 +76,6 @@ class App extends Component {
       <div className={classes.App}>
         <h1>Hi, I'm a React App </h1>
         <p className={classesName.join(' ')} >This is really working!</p>
-        {/* <button style={style} onClick={this.swichNameHandler.bind(this,'William')}>Switch Name</button>   */}
         <button className={styleBtnClass} onClick={this.toggleHandler}>Toggle </button> 
         {persons}
           
@@ -127,56 +87,4 @@ class App extends Component {
 
 export default App;
 
-
-//// react Hooks
-// import React, { useState } from 'react';
-// import './App.css';
-// import Person from './Person/Person';
-
-// let app= props =>{
-
-//   const [personsState,setPersonsState]=useState(
-//     {
-//       persons:[
-//         {name:'Max',age:28},
-//         {name:'John',age:25},
-//         {name:'Emily',age:21}
-//       ]
-//     }
-//   )
-
-//   const [otherState, setOtherState]=useState({
-//     otherState:'some other states'
-
-//   })
-
-//   console.log(personsState, otherState)
-  
-//   const swichNameHandler=()=>{
-//     //this.state.persons[0].name='William';
-//     setPersonsState({
-//       persons:[
-//         {name:'William',age:28},
-//         {name:'John',age:25},
-//         {name:'Emily',age:21}
-//       ]
-//     })
-//   }
-
-  
-    
-//     return (
-//       <div className="App">
-//         <h1>Hi, I'm a React App </h1>
-//         <p>This is really working!</p>
-//         <button onClick={swichNameHandler}>Switch Name</button>
-//         <Person name={personsState.persons[0].name} age={personsState.persons[0].age}/>
-//         <Person name={personsState.persons[1].name} age={personsState.persons[1].age}/>
-//         <Person name={personsState.persons[2].name} age={personsState.persons[2].age}> My Hobbies: Racing </Person>
-//       </div>
-//     );
-  
-// }
-
-// export default app;
 
