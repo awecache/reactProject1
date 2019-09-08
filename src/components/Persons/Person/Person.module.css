@@ -8,3 +8,10 @@
     text-align: center;
     background-color:lightslategray;
 }
+
+@media ( min-width: 600px){
+    .Person{
+        width: '500px'
+    }
+    
+}
