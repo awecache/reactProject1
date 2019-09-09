@@ -16,16 +16,16 @@ class App extends Component {
       ],
       showPersons:false 
     };
-    console.log('[constructor] life cycle called....state set');
+    console.log('[App] constructor...');
   }
   
   static getDerivedStateFromProps(props,state){
-    console.log('[getDerivedStateFrom Props] called');
+    console.log('[App] getDerivedStateFromProps...');
     return state;
   }
 
   componentDidMount(){
-    console.log('[componentDidMount]...')
+    console.log('[App]componentDidMount...')
   }
 
   deletePersonHandler=(personIndex)=>{
@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   render() {   
-    console.log('[render] called...');
+    console.log('[App] renders...');
     let persons=null;
     if(this.state.showPersons){
       persons= <Persons persons={this.state.persons}
