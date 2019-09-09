@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import classes from './App.module.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
-
+import Aux from '../hoc/Aux';
+import withClass from '../hoc/withClass';
 
 
 
@@ -84,18 +85,21 @@ class App extends Component {
     }
 
     return (
-      <div className={classes.App}>
-        
+      
+
+        <Aux>
         <button onClick={this.toggleCockpitHandler} > Toggle Cockpit</button>
 
         {cockpit}
 
         {persons}
-      </div>    
+        </Aux>
+
+      
     );
   }
 }
 
-export default App;
+export default withClass(App,classes.App);
 
 
