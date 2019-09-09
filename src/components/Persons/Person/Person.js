@@ -3,6 +3,7 @@ import classes from './Person.module.css';
 //import Radium from 'radium';
 
 class Person extends Component{
+    
     render(){
         console.log('[Person]renders...');  
         return (

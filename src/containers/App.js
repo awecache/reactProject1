@@ -24,8 +24,21 @@ class App extends Component {
     return state;
   }
 
+  //important
   componentDidMount(){
     console.log('[App]componentDidMount...')
+  }
+
+  //important for performance
+  shouldComponentUpdate(prevProps,prevState){
+    console.log('[App] shouldComponentUpdate...')
+    return true;
+
+  }
+
+  //important
+  componentDidUpdate(){
+    console.log('[App] componentDidUpdate...')
   }
 
   deletePersonHandler=(personIndex)=>{
