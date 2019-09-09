@@ -4,6 +4,8 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 
+
+
 class App extends Component {
 
   constructor(props){
@@ -14,7 +16,8 @@ class App extends Component {
         {id:'102', name:'John',age:25},
         {id:'103', name:'Emily',age:21}
       ],
-      showPersons:false 
+      showPersons:false, 
+      showCockpit:true
     };
     console.log('[App] constructor...');
   }
@@ -55,8 +58,12 @@ class App extends Component {
     this.setState({persons:persons});
   }
 
-  toggleHandler=()=>{
+  togglePersonsHandler=()=>{
     this.setState({showPersons:!this.state.showPersons});
+  }
+
+  toggleCockpitHandler=()=>{
+    this.setState({showCockpit:!this.state.showCockpit});
   }
 
   render() {   
@@ -68,11 +75,20 @@ class App extends Component {
       changeNameHandler={this.changeNameHandler} />;
     }
 
+    let cockpit =<Cockpit personsLength={this.state.persons.length} 
+    showPersons={this.state.showPersons} 
+    toggleHandler={this.togglePersonsHandler} />;
+
+    if(this.state.showCockpit===false){
+      cockpit=null;
+    }
+
     return (
       <div className={classes.App}>
-        <Cockpit persons={this.state.persons} 
-        showPersons={this.state.showPersons} 
-        toggleHandler={this.toggleHandler} />
+        
+        <button onClick={this.toggleCockpitHandler} > Toggle Cockpit</button>
+
+        {cockpit}
 
         {persons}
       </div>    

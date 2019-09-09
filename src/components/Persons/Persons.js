@@ -23,6 +23,11 @@ class Persons extends Component{
 
     }
 
+    //typically for clean up work 
+    componentWillUnmount(){
+      console.log('[Persons] componentWillUnmount...'); 
+    }
+
   render(){
     console.log('[Persons] renders...')
     return this.props.persons.map((person,index)=>{
