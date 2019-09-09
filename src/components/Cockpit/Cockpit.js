@@ -6,7 +6,7 @@ const cockpit= props =>{
     let styleBtnClass='';
     const classesName=[];
 
-    
+    console.log('[Cockpit] rendered...');
 
     if(props.persons.length<3){
       classesName.push(classes.red);

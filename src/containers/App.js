@@ -5,13 +5,27 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
-  state={
-    persons:[
-      {id:'101', name:'Max',age:28},
-      {id:'102', name:'John',age:25},
-      {id:'103', name:'Emily',age:21}
-    ],
-    showPersons:false 
+
+  constructor(props){
+    super(props);
+    this.state={
+      persons:[
+        {id:'101', name:'Max',age:28},
+        {id:'102', name:'John',age:25},
+        {id:'103', name:'Emily',age:21}
+      ],
+      showPersons:false 
+    };
+    console.log('[constructor] life cycle called....state set');
+  }
+  
+  static getDerivedStateFromProps(props,state){
+    console.log('[getDerivedStateFrom Props] called');
+    return state;
+  }
+
+  componentDidMount(){
+    console.log('[componentDidMount]...')
   }
 
   deletePersonHandler=(personIndex)=>{
@@ -33,14 +47,12 @@ class App extends Component {
   }
 
   render() {   
-    
+    console.log('[render] called...');
     let persons=null;
     if(this.state.showPersons){
       persons= <Persons persons={this.state.persons}
       deleteClickHandler={this.deletePersonHandler}
       changeNameHandler={this.changeNameHandler} />;
-        
-      
     }
 
     return (
@@ -50,8 +62,7 @@ class App extends Component {
         toggleHandler={this.toggleHandler} />
 
         {persons}
-      </div>
-      
+      </div>    
     );
   }
 }
