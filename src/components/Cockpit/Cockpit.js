@@ -1,4 +1,4 @@
-import React,{ useEffect,useRef} from 'react';
+import React,{ useEffect,useRef, useContext} from 'react';
 import classes from './Cockpit.module.css';
 import AuthContext from '../../context/auth-context';
 
@@ -42,8 +42,11 @@ const Cockpit = props =>{
     return ()=>{console.log('[Cockpit] cleanup work in 2nd useEffect....')}
   });
 
+  const authContext=useContext(AuthContext);
+
   let styleBtnClass='';
   const classesName=[];
+  let styleLoginBtn;
 
   console.log('[Cockpit] renders...');
 
@@ -57,16 +60,25 @@ const Cockpit = props =>{
   if(props.showPersons){
     styleBtnClass=classes.Red;     
   }
-  //console.log('%%%%%'+ {...props}+'%%%%%%%%%%');
+
+  if(authContext.isAuthenticated===false){
+    styleLoginBtn=classes.login;
+  }
+  if(authContext.isAuthenticated===true){
+    styleLoginBtn=classes.logout;
+  }
+
+  
   return <div className={classes.Cockpit } >
     <h1>Hi, I'm a React App </h1>
     <p className={classesName.join(' ')} >This is really working!</p>
     <button className={styleBtnClass} 
     onClick={props.toggleHandler}
     ref={toggleBtnRef} > Toggle </button> 
-    <AuthContext.Consumer>
-      {(context)=><button onClick={context.login} > {context.isAuthenticated? 'Log out' : 'Log in'} </button>}
-    </AuthContext.Consumer>
+    
+    <button className={styleLoginBtn} 
+    onClick={authContext.login} > {authContext.isAuthenticated? 'Log out' : 'Log in' } </button>
+    
   </div>
     
 }

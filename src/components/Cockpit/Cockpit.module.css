@@ -30,8 +30,8 @@
 }
 
 
-.Cockpit button .login{
-    background-color:darkblue;
+.Cockpit button.login{
+    background-color:blue;
     color:white;
     font:inherit;
     border:1px solid blue;
@@ -40,15 +40,15 @@
   
 }
   
-.Cockpit button .login:hover{
-    background-color:blue;
+.Cockpit button.login:hover{
+    background-color:darkblue;
     color:white;
 }
   
-.Cockpit button .logout{
-    background-color: red;
+.Cockpit button.logout{
+    background-color:blueviolet;
 }
   
-.Cockpit button .logout:hover{
-    background-color: lightsalmon;
+.Cockpit button.logout:hover{
+    background-color: purple;
 }
