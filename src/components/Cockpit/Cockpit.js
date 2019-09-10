@@ -26,9 +26,9 @@ const Cockpit = props =>{
     // execute callback only at the beginning and return when the component unmounts/ when useEffect runs for the last time
     useEffect(()=>{
       console.log('[cockpit] 1st useEffect...');
-      setTimeout(()=>{
-        alert('Saved data to cloud!');
-      },1000);
+      // setTimeout(()=>{
+      //   alert('Saved data to cloud!');
+      // },1000);
       return ()=>{console.log('[Cockpit] cleanup work in 1st useEffect ....')}
     },[]);
     
@@ -53,7 +53,7 @@ const Cockpit = props =>{
     if(props.showPersons){
         styleBtnClass=classes.Red;     
     }
-
+    //console.log('%%%%%'+ {...props}+'%%%%%%%%%%');
     return <div className={classes.Cockpit } >
         <h1>Hi, I'm a React App </h1>
         <p className={classesName.join(' ')} >This is really working!</p>
