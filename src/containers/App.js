@@ -18,7 +18,8 @@ class App extends Component {
         {id:'103', name:'Emily',age:21}
       ],
       showPersons:false, 
-      showCockpit:true
+      showCockpit:true,
+      changeNameCounter:0
     };
     console.log('[App] constructor...');
   }
@@ -56,7 +57,12 @@ class App extends Component {
     const persons=[...this.state.persons];
     const index=persons.findIndex(el=>el.id===id);
     persons[index].name=event.target.value;
-    this.setState({persons:persons});
+    this.setState((prevState,props)=>{
+      return {
+        persons:persons,
+        changeNameCounter:prevState.changeNameCounter+1
+      }
+    });
   }
 
   togglePersonsHandler=()=>{
@@ -88,11 +94,11 @@ class App extends Component {
       
 
         <Aux>
-        <button onClick={this.toggleCockpitHandler} > Toggle Cockpit</button>
+          <button onClick={this.toggleCockpitHandler} > Toggle Cockpit</button>
 
-        {cockpit}
+          {cockpit}
 
-        {persons}
+          {persons}
         </Aux>
 
       
