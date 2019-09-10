@@ -43,7 +43,8 @@ class Persons extends PureComponent{
         age={person.age} 
         key={person.id} 
         click={this.props.deleteClickHandler.bind(this,index)}
-        changeName={(event)=>this.props.changeNameHandler(person.id,event)}   
+        changeName={(event)=>this.props.changeNameHandler(person.id,event)}
+        // isAuthenticated={this.props.isAuthenticated}   
     />});};
 }
 

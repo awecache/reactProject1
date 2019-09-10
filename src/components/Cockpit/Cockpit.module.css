@@ -28,4 +28,27 @@
 .Cockpit button.Red:hover{
     background-color: lightsalmon;
 }
+
+
+.Cockpit button .login{
+    background-color:darkblue;
+    color:white;
+    font:inherit;
+    border:1px solid blue;
+    padding:16px;
+    cursor:pointer;
   
+}
+  
+.Cockpit button .login:hover{
+    background-color:blue;
+    color:white;
+}
+  
+.Cockpit button .logout{
+    background-color: red;
+}
+  
+.Cockpit button .logout:hover{
+    background-color: lightsalmon;
+}
